@@ -33,11 +33,11 @@ Docker 相比传统的虚拟化方式具有以下的优势
 　　传统虚拟机技术是虚拟出一套硬件后，在其上运行一个完整操作系统，在该系统上再运行所需应用进程；
 
 　　容器内的应用进程直接运行于宿主的内核，容器内没有自己的内核，而且也没有进行硬件虚拟。因此容器要比传统虚拟机更为轻便。
-　　![img](/Users/monstervivi/Downloads/黄学维/技术分享/我对Docker的理解和应用/images/vmandcontainer.jpg)
+　　![img](https://github.com/monsterhxw/docker-learning/blob/master/images/vmandcontainer.jpg)
 
 ## 二、Docker 的组成
 ### Docker 是C/S架构：
-![img](/Users/monstervivi/Downloads/黄学维/技术分享/我对Docker的理解和应用/images/dockerEngine.png)
+![img](https://github.com/monsterhxw/docker-learning/blob/master/images/dockerEngine.png)
 
 - CLient docker CLI : 命令行界面工具的客户端。
 - REST API : 客户端与守护进程进行通信的接口。
@@ -116,27 +116,27 @@ Docker 相比传统的虚拟化方式具有以下的优势
 
 ## Docker 常用命令
 
-![docker-cmd](/Users/monstervivi/Downloads/黄学维/技术分享/我对Docker的理解和应用/images/docker-cmd.png)
+![docker-cmd](https://github.com/monsterhxw/docker-learning/blob/master/images/docker-cmd.png)
 
 ## Docker 镜像命令
 #### 1. 拉取镜像其命令格式为：
 ```shell
 [root@localhost ~]# docker pull [选项] [Docker Registry 地址[:端口号]/]仓库名[:标签]
 ```
-![img](/Users/monstervivi/Downloads/黄学维/技术分享/我对Docker的理解和应用/images/dockerpull.png)
+![img](https://github.com/monsterhxw/docker-learning/blob/master/images/dockerpull.png)
 ##### 具体的选项可以通过 `docker pull --help` 命令看到
 #### 2. 列出镜像其命令格式为：
 ```shell
 [root@localhost ~]# docker image ls
 [root@localhost ~]# docker images
 ```
-![img](/Users/monstervivi/Downloads/黄学维/技术分享/我对Docker的理解和应用/images/dockerimages.png)
+![img](https://github.com/monsterhxw/docker-learning/blob/master/images/dockerimages.png)
 #### 3. 删除镜像其命令格式为：
 ```shell
 [root@localhost ~]# docker image rm [选项] <镜像1> [<镜像2> ...]
 [root@localhost ~]# docker rmi [选项] <镜像1> [<镜像2> ...]
 ```
-![img](/Users/monstervivi/Downloads/黄学维/技术分享/我对Docker的理解和应用/images/dockerrmi.png)
+![img](https://github.com/monsterhxw/docker-learning/blob/master/images/dockerrmi.png)
 ## Docker 容器命令
 #### 1、启动容器
 #### 有两种方式，一种是基于镜像新建一个容器并启动，另外一个是将在终止状态（stopped）的容器重新启动。
@@ -144,40 +144,40 @@ Docker 相比传统的虚拟化方式具有以下的优势
 ```shell
 [root@localhost ~]# docker run [选项] <镜像>
 ```
-![img](/Users/monstervivi/Downloads/黄学维/技术分享/我对Docker的理解和应用/images/dockerun.jpg)
+![img](https://github.com/monsterhxw/docker-learning/blob/master/images/dockerun.jpg)
 ##### 1.2 启动已终止容器其命令格式为：
 ```shell
 [root@localhost ~]# docker start <容器ID或容器名>
 ```
-![img](/Users/monstervivi/Downloads/黄学维/技术分享/我对Docker的理解和应用/images/dockerstart.jpg)
+![img](https://github.com/monsterhxw/docker-learning/blob/master/images/dockerstart.jpg)
 #### 2. 守护态运行其命令格式为：
 ```shell
 [root@localhost ~]# docker run -d <镜像>
 ```
-![img](/Users/monstervivi/Downloads/黄学维/技术分享/我对Docker的理解和应用/images/dockerrund.png)
+![img](https://github.com/monsterhxw/docker-learning/blob/master/images/dockerrund.png)
 #### 3. 终止容器其命令格式为：
 ```shell
 [root@localhost ~]# docker stop <容器ID或容器名>
 ```
-![img](/Users/monstervivi/Downloads/黄学维/技术分享/我对Docker的理解和应用/images/dockerstop.png)
+![img](https://github.com/monsterhxw/docker-learning/blob/master/images/dockerstop.png)
 #### 4. 进入容器其命令格式为：
 ```shell
 [root@localhost ~]# docker attach <容器ID或容器名>
 [root@localhost ~]# docker exec [选项] <容器ID或容器名>
 ```
-![img](/Users/monstervivi/Downloads/黄学维/技术分享/我对Docker的理解和应用/images/dockerexec.png)
+![img](https://github.com/monsterhxw/docker-learning/blob/master/images/dockerexec.png)
 #### 5. 列出容器其命令格式为：
 ```shell
 [root@localhost ~]# docker ps [选项]
 [root@localhost ~]# docker container ls [选项]
 ```
-![img](/Users/monstervivi/Downloads/黄学维/技术分享/我对Docker的理解和应用/images/dockerps.png)
+![img](https://github.com/monsterhxw/docker-learning/blob/master/images/dockerps.png)
 #### 5. 删除容器其命令格式为：
 ```shell
 [root@localhost ~]# docker rm [选项] <容器ID/Name 1> [<容器ID/Name 2> ...]
 [root@localhost ~]# docker container ls [选项]
 ```
-![img](/Users/monstervivi/Downloads/黄学维/技术分享/我对Docker的理解和应用/images/dockerps.png)
+![img](https://github.com/monsterhxw/docker-learning/blob/master/images/dockerps.png)
 # 四、使用 Docker File 定制镜像
 　　镜像的定制实际上就是定制每一层所添加的配置、文件。如果我们可以把每一层修改、安装、构建、操作的命令都写入一个脚本，这个脚本就是 Dockerfile。
 
@@ -301,14 +301,14 @@ WORKDIR /usr/local/tomcat
 ```shell
 [root@localhost tomcat]# docker build -t test .
 ```
-![img](/Users/monstervivi/Downloads/黄学维/技术分享/我对Docker的理解和应用/images/dockerfile.png)
+![img](https://github.com/monsterhxw/docker-learning/blob/master/images/dockerfile.png)
 ### 3、运行 docker run 命令
 ```shell
 [root@localhost tomcat]# docker run -it -p 8080:8080 --rm test
 ```
-![img](/Users/monstervivi/Downloads/黄学维/技术分享/我对Docker的理解和应用/images/dockerfilerun.png)
+![img](https://github.com/monsterhxw/docker-learning/blob/master/images/dockerfilerun.png)
 ### 4、在浏览器地址栏输入 http:ip 地址：8080 查看网页
-![img](/Users/monstervivi/Downloads/黄学维/技术分享/我对Docker的理解和应用/images/http.png)
+![img](https://github.com/monsterhxw/docker-learning/blob/master/images/http.png)
 
 # 五、Docker Compose
 ## Docker-compose 介绍
@@ -333,7 +333,7 @@ Compose 中有两个重要的概念：
 ```shell
 [root@localhost ~]# curl -L https://github.com/docker/compose/releases/download/1.24.0-rc1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 ```
-![img](/Users/monstervivi/Downloads/黄学维/技术分享/我对Docker的理解和应用/images/dockercomposeloadi.png)
+![img](https://github.com/monsterhxw/docker-learning/blob/master/images/dockercomposeloadi.png)
 
 ### 2. 为 docker-compose 添加执行权限
 ```shell
